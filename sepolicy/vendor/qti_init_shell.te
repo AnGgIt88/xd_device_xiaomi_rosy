@@ -12,3 +12,15 @@ allow qti_init_shell sysfs_slab_zspage_storeuser:file w_file_perms;
 dontaudit qti_init_shell self:capability dac_override;
 
 allow qti_init_shell proc_sysctl_schedboost:file w_file_perms;
+
+# XiaomiParts
+allow qti_init_shell kcal_dev:dir search;
+allow qti_init_shell kcal_dev:file rw_file_perms;
+allow qti_init_shell sysfs_headgain:dir search;
+allow qti_init_shell sysfs_headgain:file rw_file_perms;
+allow qti_init_shell sysfs_micgain:dir search;
+allow qti_init_shell sysfs_micgain:file rw_file_perms;
+allow qti_init_shell sysfs_vibrator:dir search;
+allow qti_init_shell sysfs_vibrator:file rw_file_perms;
+allow qti_init_shell sysfs_fpsinfo:dir search;
+allow qti_init_shell sysfs_fpsinfo:file rw_file_perms;
