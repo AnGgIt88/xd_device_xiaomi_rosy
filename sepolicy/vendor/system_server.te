@@ -8,3 +8,6 @@ get_prop(system_server, userspace_reboot_config_prop);
 get_prop(system_server, userspace_reboot_exported_prop);
 
 allow system_server hal_light_default:process signal;
+
+# smartcharging
+allow system_server sysfs_battery_supply:file { getattr open read write };
