@@ -60,6 +60,9 @@ on late-fs
     # mount RW partitions which need run fsck
     mount_all /vendor/etc/fstab.qcom --late
 
+    chown system system /sys/module/battery_saver/parameters/enabled
+    chmod 0664 /sys/module/battery_saver/parameters/enabled
+
 on post-fs
     start vendor.qseecomd
     wait_for_prop vendor.sys.listeners.registered true
