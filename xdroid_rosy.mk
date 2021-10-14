@@ -1,5 +1,5 @@
 #
-# Copyright (C) The LineageOS Project
+# Copyright (C) The Xiaomi-SDM450 Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -9,16 +9,22 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk)
 
-# Inherit some common PixelExperience stuff
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
-
-# Pixel customization
-TARGET_SUPPORTS_GOOGLE_RECORDER := false
-TARGET_INCLUDE_STOCK_ARCORE := false
-TARGET_INCLUDE_LIVE_WALLPAPERS := false
+# Inherit some common xd stuff.
+$(call inherit-product, vendor/xdroid/config/common.mk)
+XDROID_BOOT_DARK := true
+XDROID_UI_BLUR := true
 
 # Inherit from rosy device
 $(call inherit-product, device/xiaomi/rosy/device.mk)
+
+# Build Fingerprint
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    TARGET_DEVICE="rosy" \
+    PRODUCT_NAME="rosy" \
+    PRIVATE_BUILD_DESC="redfin-user 11 RQ3A.210905.001 7511028 release-keys"
+
+# Build Fingerprint
+BUILD_FINGERPRINT := "google/redfin/redfin:11/RQ3A.210905.001/7511028:user/release-keys"
 
 # Device identifier. This must come after all inclusions
 PRODUCT_NAME := xdroid_rosy
@@ -26,6 +32,8 @@ PRODUCT_DEVICE := rosy
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi 5
 PRODUCT_MANUFACTURER := Xiaomi
+
+TARGET_VENDOR_PRODUCT_NAME := rosy
 
 # Boot animation
 TARGET_BOOT_ANIMATION_RES := 720
