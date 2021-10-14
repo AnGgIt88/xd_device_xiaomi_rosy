@@ -1,4 +1,4 @@
-Copyright (C) 2018 - The LineageOS Project
+Copyright (C) 2021 - The Xdroid Finix Project
 
 # Device Tree for Xiaomi Redmi 5 (rosy)
 
