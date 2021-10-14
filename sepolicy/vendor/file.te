@@ -27,7 +27,6 @@ type sysfs_idle_state, sysfs_type, fs_type;
 type proc_swap, fs_type, proc_type;
 type proc_last_kmsg, fs_type, proc_type;
 
-<<<<<<< HEAD
 # Rmt
 type debugfs_rmt, debugfs_type, fs_type;
 

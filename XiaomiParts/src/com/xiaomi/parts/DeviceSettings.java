@@ -35,14 +35,14 @@ private static final String AMBIENT_DISPLAY = "ambient_display_gestures";
 
     // Vibration override will use bool instead of integer
     public static final String PREF_VIBRATION_OVERRIDE = "vmax_override";
-    public static final String PREF_VIBRATION_PATH = "/sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,haptics@c000/leds/vibrator/vmax_override";
+    public static final String PREF_VIBRATION_PATH = "/sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8940@3:qcom,haptics@c000/leds/vibrator/vmax_override";
 
     public static final String PREF_VIBRATION_SYSTEM_STRENGTH = "vibration_system";
     public static final String PREF_VIBRATION_NOTIFICATION_STRENGTH = "vibration_notification";
     public static final String PREF_VIBRATION_CALL_STRENGTH = "vibration_call";
-    public static final String VIBRATION_SYSTEM_PATH = "/sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,haptics@c000/leds/vibrator/vmax_mv_user";
-    public static final String VIBRATION_NOTIFICATION_PATH = "/sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,haptics@c000/leds/vibrator/vmax_mv_strong";
-    public static final String VIBRATION_CALL_PATH = "/sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,haptics@c000/leds/vibrator/vmax_mv_call";
+    public static final String VIBRATION_SYSTEM_PATH = "/sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8940@3:qcom,haptics@c000/leds/vibrator/vmax_mv_user";
+    public static final String VIBRATION_NOTIFICATION_PATH = "/sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8940@3:qcom,haptics@c000/leds/vibrator/vmax_mv_strong";
+    public static final String VIBRATION_CALL_PATH = "/sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8940@3:qcom,haptics@c000/leds/vibrator/vmax_mv_call";
 
     // value of vtg_min and vtg_max
     public static final int MIN_VIBRATION = 116;
@@ -61,7 +61,7 @@ private static final String AMBIENT_DISPLAY = "ambient_display_gestures";
     public static final  String PREF_SPEAKER_GAIN = "speaker_gain";
     public static final  String PREF_EARPIECE_GAIN = "earpiece_gain";
     public static final  String SPEAKER_GAIN_PATH = "/sys/kernel/sound_control/speaker_gain";
-    public static final  String EARPIECE_GAIN_PATH = "/sys/kernel/sound_control/earpiece_gain";
+    public static final  String EARPIECE_GAIN_PATH = "/sys/kernel/sound_control/headphone_gain";
 
     private static final String PREF_ENABLE_DIRAC = "dirac_enabled";
     private static final String PREF_HEADSET = "dirac_headset_pref";
