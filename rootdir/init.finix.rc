@@ -84,11 +84,3 @@ on post-fs
     chown system system /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8940@3:qcom,haptics@c000/leds/vibrator/vmax_mv_user
     chown system system /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8940@3:qcom,haptics@c000/leds/vibrator/vmax_mv_call
     chown system system /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8940@3:qcom,haptics@c000/leds/vibrator/vmax_mv_strong
-    
-    # 512 readahead KB for mmcblk0 and mmcblk1 io scheds
-	write /sys/block/mmcblk0/queue/read_ahead_kb  512
-	write /sys/block/mmcblk1/queue/read_ahead_kb 512
-	
-	# Default IO Scheduler
-	write /sys/block/mmcblk0/queue/scheduler bfq
-	write/sys/block/mmcblk1/queue/scheduler bfq
