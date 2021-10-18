@@ -8,7 +8,7 @@
    {
       "remote":"github",
       "branch":"eleven",
-      "repository":"AnGgIt88/vendor_xiaomi_rosy",
+      "repository":"AnGgIt88/xd_vendor_xiaomi_rosy",
       "target_path":"vendor/xiaomi/rosy"
    }
 ]
