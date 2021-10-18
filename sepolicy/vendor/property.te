@@ -6,3 +6,6 @@ type vendor_power_propg, property_type;
 
 # wlan-vendor prop
 type vendor_wifi_prop, property_type;
+
+# Dirac
+type dirac_prop, property_type;
