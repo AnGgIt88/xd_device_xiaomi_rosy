@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center_vertical" android:background="?android:selectableItemBackground" android:paddingRight="?android:scrollbarSize" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeight" android:paddingEnd="?android:scrollbarSize"
+<LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:background="@drawable/mobx_preference_single_item_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.099976dip" android:layout_marginRight="15.099976dip" android:paddingStart="30.0dip" android:paddingEnd="13.0dip"
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
     <FrameLayout android:id="@id/icon_frame" android:layout_width="wrap_content" android:layout_height="wrap_content">
         <androidx.preference.internal.PreferenceImageView android:id="@android:id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" app:maxHeight="48.0dip" app:maxWidth="48.0dip" />
