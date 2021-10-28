@@ -44,10 +44,6 @@ on boot
     chmod 0660 /sys/devices/platform/kcal_ctrl.0/kcal_min
     chmod 0660 /sys/devices/platform/kcal_ctrl.0/kcal_val
 	
-    # Touchboost
-    chown system system /sys/module/msm_performance/parameters/touchboost
-    chmod 0660 /sys/module/msm_performance/parameters/touchboost
-    
     # Sound
 	chown system system /sys/kernel/sound_control/headphone_gain
 	chown system system /sys/kernel/sound_control/mic_gain
