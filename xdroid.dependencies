@@ -2,7 +2,7 @@
    {
       "remote":"github",
       "branch":"eleven",
-      "repository":"AnGgIt88/Finix_kernel-4.9-rosy",
+      "repository":"AnGgIt88/kernel_xiaomi_rosy",
       "target_path":"kernel/xiaomi/rosy"
    },
    {
@@ -12,12 +12,12 @@
       "target_path":"vendor/xiaomi/rosy"
    },
    {
-      "repository" : "AnGgIt86/arm64-gcc",
+      "repository" : "Pulkit077/arm64-gcc",
       "target_path": "prebuilts/gcc/linux-x86/aarch64/aarch64-elf",
       "branch"     : "gcc-master"
    },
    {
-      "repository" : "AnGgIt86/gcc-arm",
+      "repository" : "Pulkit077/gcc-arm",
       "target_path": "prebuilts/gcc/linux-x86/arm/arm-eabi",
       "branch"     : "gcc-master"
    }
