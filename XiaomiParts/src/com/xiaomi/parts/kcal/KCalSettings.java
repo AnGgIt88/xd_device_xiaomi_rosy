@@ -6,7 +6,9 @@ import androidx.preference.PreferenceFragment;
 import androidx.preference.Preference;
 
 import com.xiaomi.parts.R;
-import com.xiaomi.parts.preferences.SecureSettingSeekBarPreference;
+import com.xiaomi.parts.preferences.SecureSettingSeekBarPreferenceTop;
+import com.xiaomi.parts.preferences.SecureSettingSeekBarPreferenceMiddle;
+import com.xiaomi.parts.preferences.SecureSettingSeekBarPreferenceBottom;
 import com.xiaomi.parts.preferences.SecureSettingSwitchPreference;
 
 public class KCalSettings extends PreferenceFragment implements
@@ -16,14 +18,14 @@ public class KCalSettings extends PreferenceFragment implements
 
     private SecureSettingSwitchPreference mEnabled;
     private SecureSettingSwitchPreference mSetOnBoot;
-    private SecureSettingSeekBarPreference mRed;
-    private SecureSettingSeekBarPreference mGreen;
-    private SecureSettingSeekBarPreference mBlue;
-    private SecureSettingSeekBarPreference mSaturation;
-    private SecureSettingSeekBarPreference mValue;
-    private SecureSettingSeekBarPreference mContrast;
-    private SecureSettingSeekBarPreference mHue;
-    private SecureSettingSeekBarPreference mMin;
+    private SecureSettingSeekBarPreferenceTop mRed;
+    private SecureSettingSeekBarPreferenceMiddle mGreen;
+    private SecureSettingSeekBarPreferenceMiddle mBlue;
+    private SecureSettingSeekBarPreferenceTop mSaturation;
+    private SecureSettingSeekBarPreferenceMiddle mValue;
+    private SecureSettingSeekBarPreferenceMiddle mContrast;
+    private SecureSettingSeekBarPreferenceBottom mHue;
+    private SecureSettingSeekBarPreferenceBottom mMin;
     private SecureSettingSwitchPreference mGrayscale;
 
     @Override
@@ -46,30 +48,30 @@ public class KCalSettings extends PreferenceFragment implements
         mSetOnBoot = (SecureSettingSwitchPreference) findPreference(PREF_SETONBOOT);
         mSetOnBoot.setOnPreferenceChangeListener(this);
 
-        mMin = (SecureSettingSeekBarPreference) findPreference(PREF_MINIMUM);
+        mMin = (SecureSettingSeekBarPreferenceBottom) findPreference(PREF_MINIMUM);
         mMin.setOnPreferenceChangeListener(this);
 
-        mRed = (SecureSettingSeekBarPreference) findPreference(PREF_RED);
+        mRed = (SecureSettingSeekBarPreferenceTop) findPreference(PREF_RED);
         mRed.setOnPreferenceChangeListener(this);
 
-        mGreen = (SecureSettingSeekBarPreference) findPreference(PREF_GREEN);
+        mGreen = (SecureSettingSeekBarPreferenceMiddle) findPreference(PREF_GREEN);
         mGreen.setOnPreferenceChangeListener(this);
 
-        mBlue = (SecureSettingSeekBarPreference) findPreference(PREF_BLUE);
+        mBlue = (SecureSettingSeekBarPreferenceMiddle) findPreference(PREF_BLUE);
         mBlue.setOnPreferenceChangeListener(this);
 
-        mSaturation = (SecureSettingSeekBarPreference) findPreference(PREF_SATURATION);
+        mSaturation = (SecureSettingSeekBarPreferenceTop) findPreference(PREF_SATURATION);
         mSaturation.setEnabled((Settings.Secure.getInt(getContext().getContentResolver(),
                 PREF_GRAYSCALE, 0) == 0));
         mSaturation.setOnPreferenceChangeListener(this);
 
-        mValue = (SecureSettingSeekBarPreference) findPreference(PREF_VALUE);
+        mValue = (SecureSettingSeekBarPreferenceMiddle) findPreference(PREF_VALUE);
         mValue.setOnPreferenceChangeListener(this);
 
-        mContrast = (SecureSettingSeekBarPreference) findPreference(PREF_CONTRAST);
+        mContrast = (SecureSettingSeekBarPreferenceMiddle) findPreference(PREF_CONTRAST);
         mContrast.setOnPreferenceChangeListener(this);
 
-        mHue = (SecureSettingSeekBarPreference) findPreference(PREF_HUE);
+        mHue = (SecureSettingSeekBarPreferenceBottom) findPreference(PREF_HUE);
         mHue.setOnPreferenceChangeListener(this);
 
         mGrayscale = (SecureSettingSwitchPreference) findPreference(PREF_GRAYSCALE);

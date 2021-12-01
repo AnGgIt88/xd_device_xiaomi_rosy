@@ -142,5 +142,15 @@
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:name="com.xiaomi.parts.rosy.AboutPhoneActivity"
+            android:icon="@drawable/ic_style_maintainer"
+            android:theme="@style/CustomOptionsTheme"
+            android:label="@string/nfs_title">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+        </activity>
     </application>
 </manifest>

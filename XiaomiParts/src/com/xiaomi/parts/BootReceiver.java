@@ -58,10 +58,6 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
         FileUtils.setValue(DeviceSettings.VIBRATION_CALL_PATH, Settings.Secure.getInt(
                 context.getContentResolver(), DeviceSettings.PREF_VIBRATION_CALL_STRENGTH, 80) / 100.0 * (DeviceSettings.MAX_VIBRATION - DeviceSettings.MIN_VIBRATION) + DeviceSettings.MIN_VIBRATION);
 
-        //TouchBoost
-        FileUtils.setValue(DeviceSettings.MSM_TOUCHBOOST_PATH, Settings.Secure.getInt(context.getContentResolver(),
-                DeviceSettings.PREF_MSM_TOUCHBOOST, 0));
-
 	//Dirac
         context.startService(new Intent(context, DiracService.class));
         context.startService(new Intent(context, SensorsDozeService.class));

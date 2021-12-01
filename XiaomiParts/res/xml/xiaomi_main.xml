@@ -4,6 +4,12 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto">
 
 	<PreferenceCategory
+		android:layout="@layout/banner_memek"/>
+
+    <PreferenceCategory
+        android:layout="@layout/nfs" />
+
+	<PreferenceCategory
 		android:title="@string/audio_category">
 
 		<com.xiaomi.parts.preferences.SecureSettingSwitchPreference
@@ -95,8 +101,8 @@
 
 		<mobx.projects.property.minimalist.space/>
 
-		<com.xiaomi.parts.preferences.VibrationSeekBarPreference
-			android:defaultValue="13"
+		<com.xiaomi.parts.preferences.VibrationSeekBarPreferenceMiddle
+			android:defaultValue="60"
 			android:key="vibration_system"
 			android:max="100"
 			android:title="@string/vibration_system_title"
@@ -106,8 +112,8 @@
 
 		<mobx.projects.property.minimalist.space/>
 
-		<com.xiaomi.parts.preferences.VibrationSeekBarPreference
-			android:defaultValue="100"
+		<com.xiaomi.parts.preferences.VibrationSeekBarPreferenceMiddle
+			android:defaultValue="60"
 			android:key="vibration_notification"
 			android:max="100"
 			android:title="@string/vibration_notification_title"
@@ -117,28 +123,14 @@
 
 		<mobx.projects.property.minimalist.space/>
 
-		<com.xiaomi.parts.preferences.VibrationSeekBarPreference
-			android:defaultValue="100"
+		<com.xiaomi.parts.preferences.VibrationSeekBarPreferenceBottom
+			android:defaultValue="60"
 			android:key="vibration_call"
 			android:max="100"
 			android:title="@string/vibration_call_title"
 			android:icon="@drawable/ic_vibrate_call"
 			app:min="1"
 			app:units="%"/>
-
-	</PreferenceCategory>
-
-	<PreferenceCategory
-		android:key="boost"
-		android:title="@string/boost_title">
-
-		<com.xiaomi.parts.preferences.SecureSettingSwitchPreference
-			android:key="touchboost"
-			android:defaultValue="false"
-			android:layout="@layout/card_single"
-			android:title="@string/touchboost_title"
-			android:icon="@drawable/ic_boost"
-			android:summary="@string/touchboost_summary"/>
 
 	</PreferenceCategory>
 
@@ -198,6 +190,23 @@
 			android:selectable="true"/>
 
 	</PreferenceCategory>
+	
+	<PreferenceCategory
+        android:title="@string/nfs_maintainer">
+        
+        <PreferenceScreen
+            android:icon="@drawable/ic_style_maintainer"
+            android:layout="@layout/card_single"
+            android:title="@string/nfs_title"
+            android:selectable="true"
+            android:summary="@string/nfs_summary">
+            <intent
+                android:targetPackage="com.xiaomi.parts"
+                android:action="android.intent.action.MAIN"
+                android:targetClass="com.xiaomi.parts.rosy.AboutPhoneActivity" />
+        </PreferenceScreen>
+        
+    </PreferenceCategory>
 
 </PreferenceScreen>
 

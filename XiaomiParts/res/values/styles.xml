@@ -7,6 +7,7 @@
 
     <style name="PreferenceTheme" parent="@style/PreferenceThemeOverlay.v14.Material">
         <item name="preferenceCategoryTitleTextAppearance">@style/TextAppearance.CategoryTitle</item>
+        <item name="preferenceCategoryStyle">@style/Preference.Dev.Category</item>
     </style>
 
     <style name="TextAppearance" parent="android:TextAppearance.DeviceDefault"/>
@@ -33,6 +34,19 @@
     </style>
 
     <style name="DeviceSettings.SwitchBar" parent="@android:style/ThemeOverlay.Material.ActionBar">
+    </style>
+    
+    <style name="Preference.Dev.Category" parent="@style/Preference.Category">
+        <item name="android:layout">@layout/dev_preference_category_material</item>
+        <item name="android:selectable">false</item>
+        <item name="android:shouldDisableView">false</item>
+        <item name="allowDividerBelow">false</item>
+    </style>
+    
+    <style name="FoxPreferenceCategoryTitleTextStyle">
+        <item name="android:textAppearance">?preferenceCategoryTitleTextAppearance</item>
+        <item name="android:textColor">?android:colorAccent</item>
+        <item name="android:background">@drawable/foxes_pref_card</item>
     </style>
 
 </resources>

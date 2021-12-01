@@ -16,7 +16,7 @@ import com.xiaomi.parts.fps.FPSInfoService;
 import com.xiaomi.parts.kcal.KCalSettingsActivity;
 import com.xiaomi.parts.preferences.SecureSettingListPreference;
 import com.xiaomi.parts.preferences.SecureSettingSwitchPreference;
-import com.xiaomi.parts.preferences.VibrationSeekBarPreference;
+import com.xiaomi.parts.preferences.*;
 import com.xiaomi.parts.preferences.CustomSeekBarPreference;
 import com.xiaomi.parts.ambient.AmbientGesturePreferenceActivity;
 import com.xiaomi.parts.su.SuShell;
@@ -48,9 +48,6 @@ private static final String AMBIENT_DISPLAY = "ambient_display_gestures";
     public static final int MIN_VIBRATION = 116;
     public static final int MAX_VIBRATION = 3596;
 
-    public static final String PREF_MSM_TOUCHBOOST = "touchboost";
-    public static final String MSM_TOUCHBOOST_PATH = "/sys/module/msm_performance/parameters/touchboost";
-
     public static final String PREF_KEY_FPS_INFO = "fps_info";
 
     private static final String SELINUX_CATEGORY = "selinux";
@@ -74,8 +71,6 @@ private static final String AMBIENT_DISPLAY = "ambient_display_gestures";
     private CustomSeekBarPreference mSpeakerGain;
     private CustomSeekBarPreference mEarpieceGain;
 
-    private SecureSettingSwitchPreference mTouchboost;
-
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.xiaomi_main, rootKey);
@@ -92,30 +87,21 @@ private static final String AMBIENT_DISPLAY = "ambient_display_gestures";
             startActivity(intent);
             return true;
         });
-        VibrationSeekBarPreference vibrationSystemStrength = (VibrationSeekBarPreference) findPreference(PREF_VIBRATION_SYSTEM_STRENGTH);
+        VibrationSeekBarPreferenceMiddle vibrationSystemStrength = (VibrationSeekBarPreferenceMiddle) findPreference(PREF_VIBRATION_SYSTEM_STRENGTH);
         vibrationSystemStrength.setEnabled(FileUtils.fileWritable(VIBRATION_SYSTEM_PATH));
         vibrationSystemStrength.setOnPreferenceChangeListener(this);
 
-        VibrationSeekBarPreference vibrationNotificationStrength = (VibrationSeekBarPreference) findPreference(PREF_VIBRATION_NOTIFICATION_STRENGTH);
+        VibrationSeekBarPreferenceMiddle vibrationNotificationStrength = (VibrationSeekBarPreferenceMiddle) findPreference(PREF_VIBRATION_NOTIFICATION_STRENGTH);
         vibrationNotificationStrength.setEnabled(FileUtils.fileWritable(VIBRATION_NOTIFICATION_PATH));
         vibrationNotificationStrength.setOnPreferenceChangeListener(this);
 
-        VibrationSeekBarPreference vibrationCallStrength = (VibrationSeekBarPreference) findPreference(PREF_VIBRATION_CALL_STRENGTH);
+        VibrationSeekBarPreferenceBottom vibrationCallStrength = (VibrationSeekBarPreferenceBottom) findPreference(PREF_VIBRATION_CALL_STRENGTH);
         vibrationCallStrength.setEnabled(FileUtils.fileWritable(VIBRATION_CALL_PATH));
         vibrationCallStrength.setOnPreferenceChangeListener(this);
 
         SwitchPreference fpsInfo = (SwitchPreference) findPreference(PREF_KEY_FPS_INFO);
         fpsInfo.setChecked(prefs.getBoolean(PREF_KEY_FPS_INFO, false));
         fpsInfo.setOnPreferenceChangeListener(this);
-
-        if (FileUtils.fileWritable(MSM_TOUCHBOOST_PATH)) {
-            mTouchboost = (SecureSettingSwitchPreference) findPreference(PREF_MSM_TOUCHBOOST);
-            mTouchboost.setEnabled(Touchboost.isSupported());
-            mTouchboost.setChecked(Touchboost.isCurrentlyEnabled(this.getContext()));
-            mTouchboost.setOnPreferenceChangeListener(new Touchboost(getContext()));
-        } else {
-            getPreferenceScreen().removePreference(findPreference(PREF_MSM_TOUCHBOOST));
-        }
 
         boolean enhancerEnabled;
         try {
