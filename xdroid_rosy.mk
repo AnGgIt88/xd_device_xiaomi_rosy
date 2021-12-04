@@ -11,8 +11,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk
 
 # Inherit some common xd stuff.
 $(call inherit-product, vendor/xdroid/config/common.mk)
-XDROID_BOOT_DARK := true
-XDROID_UI_BLUR := true
 
 # Inherit from rosy device
 $(call inherit-product, device/xiaomi/rosy/device.mk)
