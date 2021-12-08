@@ -338,6 +338,10 @@ PRODUCT_PACKAGES += \
     init.rosy.rc \
     init.target.rc \
     init.finix.rc \
+    init.spectrum.rc \
+    init.spectrum.sh \
+    init.camera.rc \
+    init.camera.sh \
     ueventd.qcom.rc \
     init.performance_level.rc
 

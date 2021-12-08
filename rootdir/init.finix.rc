@@ -64,38 +64,6 @@ on boot
     chown system system /sys/kernel/fast_charge/force_fast_charge
     chmod 0660 /sys/kernel/fast_charge/force_fast_charge
 	
-on property:sys.boot_completed=1
-    # Initialization
-    chown system system /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/default_pwrlevel
-    chmod 0664 /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/default_pwrlevel
-    chown system system /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/devfreq/1c00000.qcom,kgsl-3d0/governor
-    chmod 0664 /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/devfreq/1c00000.qcom,kgsl-3d0/governor
-    chown system system/sys/module/workqueue/parameters/power_efficient
-    chmod 0664 /sys/module/workqueue/parameters/power_efficient
-    chown system system /sys/module/lowmemorykiller/parameters/vmpressure_file_min
-    chmod 0664 /sys/module/lowmemorykiller/parameters/vmpressure_file_min
-   
-    # Configure governor settings for cluster
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor schedutil
-
-    #GPU
-    write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/default_pwrlevel 5
-    write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/devfreq/1c00000.qcom,kgsl-3d0/governor msm-adreno-tz
-    write /sys/module/workqueue/parameters/power_efficient Y
-
-    #LMK		
-    write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
-    write /sys/module/lowmemorykiller/parameters/minfree 18432,23040,27648,32256,55296,80640
-    write /sys/module/lowmemorykiller/parameters/cost 32
-    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 81250
-    write /proc/sys/vm/swappiness 100
-    write /proc/sys/vm/vfs_cache_pressure 100
-    write /proc/sys/vm/min_free_kbytes 6764
-    write /proc/sys/vm/dirty_ratio 20
-    write /proc/sys/vm/dirty_background_ratio 5
-    write /proc/sys/vm/dirty_expire_centisecs 200
-    write /proc/sys/vm/dirty_writeback_centisecs 500
-    
     # Vibrator permissions
     chown system system /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8940@3:qcom,haptics@c000/leds/vibrator/vmax_mv
     chmod 0600 /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8940@3:qcom,haptics@c000/leds/vibrator/vmax_mv
@@ -104,3 +72,4 @@ on property:sys.boot_completed=1
     chown system system /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8940@3:qcom,haptics@c000/leds/vibrator/vmax_mv_call
     chown system system /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8940@3:qcom,haptics@c000/leds/vibrator/vmax_mv_strong
     write /sys/class/leds/vibrator/vmax_mv 2204
+    

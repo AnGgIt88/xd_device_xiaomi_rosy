@@ -18,6 +18,9 @@ import com.xiaomi.parts.preferences.SecureSettingListPreference;
 import com.xiaomi.parts.preferences.SecureSettingSwitchPreference;
 import com.xiaomi.parts.preferences.*;
 import com.xiaomi.parts.preferences.CustomSeekBarPreference;
+import com.xiaomi.parts.preferences.SecureSettingSeekBarPreferenceTop;
+import com.xiaomi.parts.preferences.SecureSettingSeekBarPreferenceMiddle;
+import com.xiaomi.parts.preferences.SecureSettingSeekBarPreferenceBottom;
 import com.xiaomi.parts.ambient.AmbientGesturePreferenceActivity;
 import com.xiaomi.parts.su.SuShell;
 import com.xiaomi.parts.su.SuTask;
@@ -27,11 +30,20 @@ import com.xiaomi.parts.R;
 
 public class DeviceSettings extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
+        	
+     // mobx spectrum
+    public static final String PREF_SPECTRUM = "spectrum";
+    public static final String SPECTRUM_SYSTEM_PROPERTY = "persist.spectrum.profile";
+    private SecureSettingListPreference mSPECTRUM;
 
+    public static final String PREF_USB_FASTCHARGE = "fastcharge";
+    public static final String USB_FASTCHARGE_PATH = "/sys/kernel/fast_charge/force_fast_charge";
+    private SwitchPreference mFastcharge;
+    
     private static final String TAG = "DeviceSettings";
 
     private static final String PREF_DEVICE_KCAL = "device_kcal";
-private static final String AMBIENT_DISPLAY = "ambient_display_gestures";
+    private static final String AMBIENT_DISPLAY = "ambient_display_gestures";
 
     // Vibration override will use bool instead of integer
     public static final String PREF_VIBRATION_OVERRIDE = "vmax_override";
@@ -43,7 +55,7 @@ private static final String AMBIENT_DISPLAY = "ambient_display_gestures";
     public static final String VIBRATION_SYSTEM_PATH = "/sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8940@3:qcom,haptics@c000/leds/vibrator/vmax_mv_user";
     public static final String VIBRATION_NOTIFICATION_PATH = "/sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8940@3:qcom,haptics@c000/leds/vibrator/vmax_mv_strong";
     public static final String VIBRATION_CALL_PATH = "/sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8940@3:qcom,haptics@c000/leds/vibrator/vmax_mv_call";
-
+    
     // value of vtg_min and vtg_max
     public static final int MIN_VIBRATION = 116;
     public static final int MAX_VIBRATION = 3596;
@@ -59,6 +71,10 @@ private static final String AMBIENT_DISPLAY = "ambient_display_gestures";
     public static final  String PREF_EARPIECE_GAIN = "earpiece_gain";
     public static final  String SPEAKER_GAIN_PATH = "/sys/kernel/sound_control/speaker_gain";
     public static final  String EARPIECE_GAIN_PATH = "/sys/kernel/sound_control/headphone_gain";
+    
+    public static final String PREF_CAMERA = "camera";
+    public static final String CAMERA_SYSTEM_PROPERTY = "persist.camera.profile";
+    private SecureSettingListPreference mCamera;
 
     private static final String PREF_ENABLE_DIRAC = "dirac_enabled";
     private static final String PREF_HEADSET = "dirac_headset_pref";
@@ -126,7 +142,7 @@ private static final String AMBIENT_DISPLAY = "ambient_display_gestures";
 
         SecureSettingListPreference preset = (SecureSettingListPreference) findPreference(PREF_PRESET);
         preset.setOnPreferenceChangeListener(this);
-
+        
 
         Preference kcal = findPreference(PREF_DEVICE_KCAL);
         kcal.setOnPreferenceClickListener(preference -> {
@@ -158,12 +174,39 @@ private static final String AMBIENT_DISPLAY = "ambient_display_gestures";
             mSelinuxPersistence.setOnPreferenceChangeListener(this);
             mSelinuxMode.setOnPreferenceChangeListener(this);
         }
+        
+        if (FileUtils.fileWritable(USB_FASTCHARGE_PATH)) {
+            mFastcharge = (SwitchPreference) findPreference(PREF_USB_FASTCHARGE);
+            mFastcharge.setEnabled(Fastcharge.isSupported());
+            mFastcharge.setChecked(Fastcharge.isCurrentlyEnabled(this.getContext()));
+            mFastcharge.setOnPreferenceChangeListener(new Fastcharge(getContext()));
+        } 
+        
+        // mobx spectrum
+        mSPECTRUM = (SecureSettingListPreference) findPreference(PREF_SPECTRUM);
+        mSPECTRUM.setValue(FileUtils.getStringProp(SPECTRUM_SYSTEM_PROPERTY, "0"));
+        mSPECTRUM.setSummary(mSPECTRUM.getEntry());
+        mSPECTRUM.setOnPreferenceChangeListener(this);
+        
+        // HAL3|HAL1 Switch button profiles
+        mCamera = (SecureSettingListPreference) findPreference(PREF_CAMERA);
+        mCamera.setValue(FileUtils.getStringProp(CAMERA_SYSTEM_PROPERTY, "0"));
+        mCamera.setSummary(mCamera.getEntry());
+        mCamera.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object value) {
         final String key = preference.getKey();
         switch (key) {
+        	
+            // mobx spectrum
+            case PREF_SPECTRUM:
+                mSPECTRUM.setValue((String) value);
+                mSPECTRUM.setSummary(mSPECTRUM.getEntry());
+                FileUtils.setStringProp(SPECTRUM_SYSTEM_PROPERTY, (String) value);
+                break;
+        
             case PREF_VIBRATION_SYSTEM_STRENGTH:
                 double VibrationSystemValue = (int) value / 100.0 * (MAX_VIBRATION - MIN_VIBRATION) + MIN_VIBRATION;
                 FileUtils.setValue(VIBRATION_SYSTEM_PATH, VibrationSystemValue);
@@ -223,6 +266,12 @@ private static final String AMBIENT_DISPLAY = "ambient_display_gestures";
                 }
                 break;
 
+            case PREF_CAMERA:
+                mCamera.setValue((String) value);
+               	mCamera.setSummary(mCamera.getEntry());
+                FileUtils.setStringProp(CAMERA_SYSTEM_PROPERTY, (String) value);
+                break;
+            
             case PREF_SELINUX_MODE:
                 boolean on = (Boolean) value;
                 new SwitchSelinuxTask(getActivity()).execute(on);

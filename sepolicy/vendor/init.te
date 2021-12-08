@@ -20,3 +20,8 @@ allow init firmware_file:filesystem getattr;
 
 # Allow init to chown/chmod on pseudo files in /sys
 allow init sysfs_type:file { setattr };
+
+# Dirac
+set_prop(vendor_init, dirac_prop)
+set_prop(vendor_init, vendor_audio_prop)
+allow vendor_init dirac_prop:property_service set;

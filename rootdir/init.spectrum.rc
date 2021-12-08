@@ -1,0 +1,241 @@
+# SPECTRUM KERNEL MANAGER
+# By Finix Projects
+
+# Initialization
+on property:sys.boot_completed=1
+
+   chown system system /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/default_pwrlevel
+   chmod 0664 /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/default_pwrlevel
+   chown system system /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/devfreq/1c00000.qcom,kgsl-3d0/governor
+   chmod 0664 /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/devfreq/1c00000.qcom,kgsl-3d0/governor
+   chown system system /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/devfreq/1c00000.qcom,kgsl-3d0/adrenoboost
+   chmod 0664 /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/devfreq/1c00000.qcom,kgsl-3d0/adrenoboost
+   chown system system /sys/module/adreno_idler/parameters/adreno_idler_active
+   chmod 0664 /sys/module/adreno_idler/parameters/adreno_idler_active
+   chown system system /sys/block/mmcblk0/queue/scheduler
+   chmod 0664 /sys/block/mmcblk0/queue/scheduler
+   chown system system /sys/block/mmcblk1/queue/scheduler
+   chmod 0664 /sys/block/mmcblk1/queue/scheduler
+   chown system system/sys/module/workqueue/parameters/power_efficient
+   chmod 0664 /sys/module/workqueue/parameters/power_efficient
+   chown system system /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/idle_timer
+   chmod 0664 /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/idle_timer
+   chown system system /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/max_gpuclk
+   chmod 0664 /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/max_gpuclk
+   chown system system /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/min_clock_mhz
+   chmod 0664 /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/min_clock_mhz
+   chown system system /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/devfreq/max_freq
+   chmod 0664 /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/devfreq/max_freq
+   chown system system /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/devfreq/min_freq
+   chmod 0664 /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/devfreq/min_freq
+   chown system system /sys/devices/platform/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/governor
+   chmod 0664 /sys/devices/platform/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/governor
+   chown system system /sys/devices/platform/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/max_freq
+   chmod 0664 /sys/devices/platform/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/max_freq
+   chown system system /sys/devices/platform/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/min_freq
+   chmod 0664 /sys/devices/platform/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/min_freq
+   chown system system /sys/devices/platform/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/governor
+   chmod 0664 /sys/devices/platform/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/governor
+   chown system system /sys/devices/platform/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/max_freq
+   chmod 0664 /sys/devices/platform/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/max_freq
+   chown system system /sys/devices/platform/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/min_freq
+   chmod 0664 /sys/devices/platform/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/min_freq
+   chown system system /sys/block/mmcblk0/queue/scheduler
+   chmod 0664 /sys/block/mmcblk0/queue/scheduler
+   chown system system /sys/block/mmcblk1/queue/scheduler
+   chmod 0664 /sys/block/mmcblk1/queue/scheduler
+   chown system system /sys/block/mmcblk0/queue/read_ahead_kb
+   chmod 0664 /sys/block/mmcblk0/queue/read_ahead_kb
+   chown system system /sys/block/mmcblk1/queue/read_ahead_kb
+   chmod 0664 /sys/block/mmcblk1/queue/read_ahead_kb
+   chown system system /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/default_pwrlevel
+   chmod 0664 /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/default_pwrlevel
+   chown system system /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/devfreq/1c00000.qcom,kgsl-3d0/governor
+   chmod 0664 /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/devfreq/1c00000.qcom,kgsl-3d0/governor
+   chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+   chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+
+   # Set default profile on first boot
+    exec u:r:init:s0 root root -- /vendor/bin/init.spectrum.sh
+    exec u:r:magisk:s0 root root -- /vendor/bin/init.spectrum.sh
+    exec u:r:su:s0 root root -- /vendor/bin/init.spectrum.sh
+   
+   # Enable Spectrum support
+   setprop spectrum.support 1
+   
+   # Add kernel name
+   setprop persist.spectrum.kernel finix
+
+# Balance (default profile)
+on property:persist.spectrum.profile=0
+
+		# Configure governor settings
+		write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor schedutil
+		write /sys/module/cpu_boost/parameters/input_boost_freq 652800
+		write /sys/module/cpu_boost/parameters/input_boost_ms 1000
+
+		#GPU
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/devfreq/1c00000.qcom,kgsl-3d0/governor msm-adreno-tz
+		write /sys/module/workqueue/parameters/power_efficient Y
+		write /sys/devices/platform/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/governor bw_hwmon
+		write /sys/devices/platform/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/max_freq 7104
+		write /sys/devices/platform/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/min_freq 1611
+		write /sys/devices/platform/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/governor cpufreq
+		write /sys/devices/platform/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/max_freq 5859
+		write /sys/devices/platform/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/min_freq 1611
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/idle_timer 80
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/max_gpuclk 600000000
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/min_clock_mhz 133
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/default_pwrlevel 4
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/devfreq/max_freq 600000000
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/devfreq/min_freq 133330000
+
+		#IO Scheduler
+		write /sys/block/mmcblk0/queue/scheduler "bfq"
+		write /sys/block/mmcblk1/queue/scheduler "bfq"
+		write /sys/block/mmcblk0/queue/read_ahead_kb 1024
+
+		#LMK		
+		write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
+		write /sys/module/lowmemorykiller/parameters/minfree 18432,23040,27648,32256,55296,80640
+		write /sys/module/lowmemorykiller/parameters/cost 32
+		write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 81250
+		write /proc/sys/vm/swappiness 100
+		write /proc/sys/vm/vfs_cache_pressure 100
+		write /proc/sys/vm/min_free_kbytes 6764
+		write /proc/sys/vm/dirty_ratio 20
+		write /proc/sys/vm/dirty_background_ratio 5
+		write /proc/sys/vm/dirty_expire_centisecs 200
+		write /proc/sys/vm/dirty_writeback_centisecs 500
+
+# Performance
+on property:persist.spectrum.profile=1
+
+		# Configure governor settings
+		write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor schedutil
+		write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1804800
+		write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 652800
+		write /sys/module/cpu_boost/parameters/input_boost_freq 1401600
+		write /sys/module/cpu_boost/parameters/input_boost_ms 1250
+        
+		#GPU
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/devfreq/1c00000.qcom,kgsl-3d0/governor msm-adreno-tz
+		write /sys/module/workqueue/parameters/power_efficient N
+		write /sys/devices/platform/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/governor bw_hwmon
+		write /sys/devices/platform/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/max_freq 7104
+		write /sys/devices/platform/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/min_freq 1611
+		write /sys/devices/platform/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/governor cpufreq
+		write /sys/devices/platform/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/max_freq 5859
+		write /sys/devices/platform/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/min_freq 1611
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/idle_timer 80
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/max_gpuclk 600000000
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/min_clock_mhz 133
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/default_pwrlevel 4
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/devfreq/max_freq 600000000
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/devfreq/min_freq 133330000
+
+		#IO Scheduler
+		write /sys/block/mmcblk0/queue/scheduler "deadline"
+		write /sys/block/mmcblk1/queue/scheduler "deadline"
+		write /sys/block/mmcblk0/queue/read_ahead_kb 2048
+
+		#LMK
+		write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
+		write /sys/module/lowmemorykiller/parameters/minfree 18432,23040,27648,51256,89600,115200
+		write /sys/module/lowmemorykiller/parameters/cost 32
+		write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 128000
+		write /proc/sys/vm/swappiness 0
+		write /proc/sys/vm/vfs_cache_pressure 100
+		write /proc/sys/vm/min_free_kbytes 12288
+		write /proc/sys/vm/dirty_ratio 20
+		write /proc/sys/vm/dirty_background_ratio 5
+		write /proc/sys/vm/dirty_expire_centisecs 200
+		write /proc/sys/vm/dirty_writeback_centisecs 1500
+
+# Battery
+on property:persist.spectrum.profile=2
+
+		# Configure governor settings
+		write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor conservative
+		write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1401600
+		write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 652800
+		write /sys/module/cpu_boost/parameters/input_boost_freq 652800
+		write /sys/module/cpu_boost/parameters/input_boost_ms 750
+        
+		#GPU
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/devfreq/1c00000.qcom,kgsl-3d0/governor simple_ondemand
+		write /sys/module/workqueue/parameters/power_efficient Y
+		write /sys/devices/platform/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/governor bw_hwmon
+		write /sys/devices/platform/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/max_freq 6445
+		write /sys/devices/platform/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/min_freq 1611
+		write /sys/devices/platform/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/governor cpufreq
+		write /sys/devices/platform/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/max_freq 5859
+		write /sys/devices/platform/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/min_freq 1611
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/idle_timer 64
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/max_gpuclk 560000000
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/min_clock_mhz 133
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/default_pwrlevel 4
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/devfreq/max_freq 560000000
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/devfreq/min_freq 133330000
+
+		#IO Scheduler
+		write /sys/block/mmcblk0/queue/scheduler "noop"
+		write /sys/block/mmcblk1/queue/scheduler "noop"
+		write /sys/block/mmcblk0/queue/read_ahead_kb 128
+
+		#LMK		
+		write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
+		write /sys/module/lowmemorykiller/parameters/minfree 18432,23040,27648,32256,55296,80640
+		write /sys/module/lowmemorykiller/parameters/cost 32
+		write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 128000
+		write /proc/sys/vm/swappiness 60
+		write /proc/sys/vm/vfs_cache_pressure 10
+		write /proc/sys/vm/min_free_kbytes 6764
+		write /proc/sys/vm/dirty_ratio 90
+		write /proc/sys/vm/dirty_background_ratio 70
+		write /proc/sys/vm/dirty_expire_centisecs 250
+		write /proc/sys/vm/dirty_writeback_centisecs 500
+
+# Gaming
+on property:persist.spectrum.profile=3
+
+		# Configure governor settings
+		write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor performance
+		write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1804800
+		write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 1689600
+		write /sys/module/cpu_boost/parameters/input_boost_freq 1689600
+		write /sys/module/cpu_boost/parameters/input_boost_ms 1500
+        
+		#GPU
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/devfreq/1c00000.qcom,kgsl-3d0/governor msm-adreno-tz
+		write /sys/module/workqueue/parameters/power_efficient N
+		write /sys/devices/platform/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/governor bw_hwmon
+		write /sys/devices/platform/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/max_freq 7104
+		write /sys/devices/platform/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/min_freq 4248
+		write /sys/devices/platform/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/governor cpufreq
+		write /sys/devices/platform/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/max_freq 7104
+		write /sys/devices/platform/soc/soc:qcom,mincpubw/devfreq/soc:qcom,mincpubw/min_freq 7104
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/idle_timer 1000000
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/max_gpuclk 600000000
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/min_clock_mhz 725
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/default_pwrlevel 0
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/devfreq/max_freq 600000000
+		write /sys/devices/platform/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/devfreq/min_freq 600000000
+
+		#IO Scheduler
+		write /sys/block/mmcblk0/queue/scheduler "deadline"
+		write /sys/block/mmcblk1/queue/scheduler "deadline"
+		write /sys/block/mmcblk0/queue/read_ahead_kb 4096
+
+		#LMK
+		write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
+		write /sys/module/lowmemorykiller/parameters/minfree 18432,23040,27648,51256,150296,200640
+		write /sys/module/lowmemorykiller/parameters/cost 16
+		write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 202640
+		write /proc/sys/vm/swappiness 70
+		write /proc/sys/vm/vfs_cache_pressure 500
+		write /proc/sys/vm/min_free_kbytes 8192
+		write /proc/sys/vm/dirty_ratio 10
+		write /proc/sys/vm/dirty_background_ratio 10
+		write /proc/sys/vm/dirty_expire_centisecs 500
+		write /proc/sys/vm/dirty_writeback_centisecs 100

@@ -9,11 +9,11 @@
     <string name="audio_category">Audio</string>
     <string name="display_category">Display</string>
     <string name="other_category">Other</string>
-    <string name="torch_category">Torch</string>
 
     <!-- USB fastcharge -->
+    <string name="usb_fastcharge_title">USB Fastcharge</string>
     <string name="fastcharge_title">Enable USB Fastcharge</string>
-    <string name="fastcharge_summary">Charge upto 700mA when connected to a computer via USB 3.0 port</string>
+    <string name="fastcharge_summary">Charge upto 900mA when connected to a computer via USB 3.0 port</string>
 
     <!-- FPS Info -->
     <string name="fps_info_title">FPS Info Overlay</string>
@@ -221,7 +221,30 @@
     <!-- Fonts -->
     <string name="fonts">@font/Virgo</string>
     
+    <!-- Spectrum Profiles -->
+    <string name="spectrum_profile_title">Spectrum</string>
+    <string name="spectrum_title">Spectrum Profile</string>
+    <string name="spectrum_summary">Choose your Spectrum Profile</string>
+    <string name="spectrum_dialogTitle">Choose your Spectrum Profile</string>
+
+    <!-- Values for Spectrum Presets -->
+    <string name="spectrum_performance">Performance</string>
+    <string name="spectrum_battery">Battery</string>
+    <string name="spectrum_gaming">Gaming</string>
+    <string name="spectrum_balance">Balance</string>
+    
     <!-- NFSDev -->
     <string name="nfs_title">NFS Maintainer</string>
-    <string name="nfs_summary">By NFS Project Indonesia</string>
+    <string name="nfs_summary">NFS | mobx | M•R•T</string>
+    
+    <!-- HAL3 | HAL1 Switch button profiles -->
+    <string name="camera_category">Camera</string>
+    <string name="camera_explanation_summary">HAL3 | HAL1 Switch button.</string>
+    <string name="camera_title">Camera Mode</string>
+    <string name="camera_hal1_summary">HAL1</string>
+    <string name="camera_hal3_summary">HAL3</string>
+    <string name="camera_hal1_toast_title">Selinux set to Hal1!</string>
+    <string name="camera_hal3_toast_title">Selinux set to Hal3!</string>
+    <string name="camera_dialogTitle">Select your HAL camera</string>
+    
 </resources>
